@@ -1,33 +1,27 @@
 import "./globals.css";
-import Link from "next/link";
+import Footer from "./Footer";
 import Header from "./Header";
 
 export const metadata = {
-  title: "Fruit Shop",
-  description: "Loja virtual de frutas desenvolvida com Next.js e Stripe.",
+  metadataBase: new URL("https://fruit-shop-next-js-main.vercel.app"),
+  title: "Fruit Shop | Fresh fruit, simple shopping",
+  description:
+    "Uma loja virtual bilíngue de frutas, desenvolvida com Next.js e Stripe.",
+  openGraph: {
+    title: "Fruit Shop",
+    description: "Fresh fruit, simple shopping.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-      </head>
-      <body className="min-h-screen flex flex-col font-sans">
-        <Header></Header>
+      <body className="flex min-h-screen flex-col">
+        <Header />
         <div className="flex-1">{children}</div>
-        <footer className="flex items-center flex-wrap justify-center border-t border-solid border-slate-300 p-4 md:p-8">
-          <Link href={"https://www.instagram.com/matheeusvaz/"} target="_blank">
-            <i className="fa-brands fa-instagram text-slate-700 hover:text-slate-500 cursor-pointer text-2xl sm:text-3xl md:text-4xl"></i>
-          </Link>
-        </footer>
-        <div id="portal"></div>
+        <Footer />
+        <div id="portal" />
       </body>
     </html>
   );

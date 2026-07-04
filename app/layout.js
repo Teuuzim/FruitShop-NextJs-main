@@ -1,21 +1,16 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 import Link from "next/link";
 import Header from "./Header";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata = {
   title: "Fruit Shop",
-  description: "Hyperinflated fruit store - best prices 2023",
+  description: "Loja virtual de frutas desenvolvida com Next.js e Stripe.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -24,7 +19,7 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className={"min-h-screen flex flex-col " + inter.className}>
+      <body className="min-h-screen flex flex-col font-sans">
         <Header></Header>
         <div className="flex-1">{children}</div>
         <footer className="flex items-center flex-wrap justify-center border-t border-solid border-slate-300 p-4 md:p-8">

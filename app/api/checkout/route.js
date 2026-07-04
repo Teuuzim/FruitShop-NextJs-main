@@ -16,8 +16,8 @@ export const POST = async (request) => {
     });
 
     const session = await stripe.checkout.sessions.create({
-      success_url: "https://fruit-shop-next-js-main-5gyt7h039-teuuzim.vercel.app/success",
-      cancel_url: "https://fruit-shop-next-js-main-5gyt7h039-teuuzim.vercel.app/cancel",
+      success_url: new URL("/success", request.url).toString(),
+      cancel_url: new URL("/cancel", request.url).toString(),
       line_items: body.lineItems,
       mode: "subscription", // Update the mode to 'subscription' if using recurring prices, or 'payment' if using one-time prices
     });

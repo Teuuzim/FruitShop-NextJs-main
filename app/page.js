@@ -3,6 +3,8 @@ import { Children } from "react";
 import Stripe from "stripe";
 import ProductsCard from "./ProductsCard";
 
+export const dynamic = "force-dynamic";
+
 async function getStripeProducts() {
   const stripe = new Stripe(process.env.STRIPE_SECRET ?? "", {
     apiVersion: "2022-11-15",
